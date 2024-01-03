@@ -5,14 +5,24 @@ public class Level1_5 {
 	public static void main(String[] args) {
 		System.out.println(" >> Level1_5 answer >> \n");
 		
-		byte value1 = 100;				
+		byte value1 = 100;
 		short value2 = 30000;			
 		int value3 = 2000000000;		
 		long value4 = 40000000000L;		
 		float value5 = 3.123123123F;
 		
 		/* 문제풀이 위치 */
-	
+		short v1 = value1;
+		int v2 = value2;
+		long v3 = value3;
+		float v4 = value4;
+		double v5 = value5;
+
+		System.out.println("byte -> short : "+v1);
+		System.out.println("short -> int : "+v2);
+		System.out.println("int -> long : "+v3);
+		System.out.println("long -> float : "+v4);
+		System.out.println("float -> double : "+v5);
 		/* ----------- */
 	}
 }

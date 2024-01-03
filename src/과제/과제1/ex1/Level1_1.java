@@ -5,7 +5,33 @@ public class Level1_1 {
 	public static void main(String[] args) {
 		System.out.println(" >> Level1_1 answer >> \n");
 		/* 문제풀이 위치 */
-		
+		byte byte1 = 10;
+		System.out.println("byte1 : " + byte1);
+
+		boolean boolean1 = true;
+		System.out.println("boolean1 : " + boolean1);
+
+		char char1 = 'A';
+		System.out.println("char1 : " + char1);
+
+		short short1 = 30000;
+		System.out.println("short1 : " + short1);
+
+		int int1 = 2000000000;
+		System.out.println("int1 : " + int1);
+
+		long long1 = 40000000000L;
+		System.out.println("long1 : " + long1);
+
+		float float1 = 3.1231232F;
+		System.out.println("float1 : " + float1);
+
+		double double1 = 3.123123123;
+		System.out.println("double1 : " + double1);
+
+
+
+
 		/* ----------- */
 	}
 }

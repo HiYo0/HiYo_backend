@@ -8,12 +8,72 @@ public class Level1_7 {
 	public static void main(String[] args) {
 		System.out.println(" >> Level1_7 answer >> ");
 		System.out.println(" >> answer time : " + LocalDateTime.now() +" >> \n" );
+
 		Scanner scanner = new Scanner(System.in);
-		
+
 		String output = "";
-		
+
 		/* 문제풀이 위치 */
-		
+		;
+		System.out.print("회원명 String : ");
+		String str = scanner.next();
+//
+		System.out.print("상태 boolean : ");
+		boolean bool = scanner.nextBoolean() ;
+//
+		System.out.print("회원번호 byte : ");
+		byte b = scanner.nextByte() ;
+
+		System.out.print("성별 char : ");
+		char c = scanner.next().charAt(0) ;
+
+		System.out.print("나이 short : ");
+		short s = scanner.nextShort() ;
+
+		System.out.print("포인트 int : ");
+		int i = scanner.nextInt() ;
+
+		System.out.print("예금액 long : ");
+		long l = scanner.nextLong() ;
+
+		System.out.print("키 float : ");
+		float f = scanner.nextFloat() ;
+
+		System.out.print("몸무게 double : ");
+		double d = scanner.nextDouble() ;
+
+		output = "=============회원정보=============";
+		System.out.println(output);
+
+		output = "|\t\t회원명 : "+str+"\t\t\t|";
+		System.out.println(output);
+
+		output = "|\t\t상태 : "+bool+"\t\t\t\t|";
+		System.out.println(output);
+
+		output = "|\t\t회원번호 : "+b+"\t\t\t|";
+		System.out.println(output);
+
+		output = "|\t\t성별 : "+c+"\t\t\t\t\t|";
+		System.out.println(output);
+
+		output = "|\t\t나이 : "+s+"\t\t\t\t|";
+		System.out.println(output);
+
+		output = "|\t\t포인트 : "+i+"\t\t\t|";
+		System.out.println(output);
+
+		output = "|\t\t예금액 : "+l+"\t\t\t|";
+		System.out.println(output);
+
+		output = "|\t\t키 : "+f+"\t\t\t\t|";
+		System.out.println(output);
+
+		output = "|\t\t몸무게 : "+d+"\t\t\t|";
+		System.out.println(output);
+
+		output = "================================";
+		System.out.println(output);
 
 		/* ----------- */
 	}

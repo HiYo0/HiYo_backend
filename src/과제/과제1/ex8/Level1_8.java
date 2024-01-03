@@ -16,7 +16,13 @@ public class Level1_8 {
 		String output = "";
 		
 		/* 문제풀이 위치 */
-		
+		String myName = "frhyme";
+		System.out.println(
+				// String.format() 을 만들어서, parameter를 넣어줌.
+				// 사실 이 아이는 새로운 sentence라는 변수를 만들어서 값을 넣어주고 출력하는 것과 비슷하죠.
+				// String sentence = String.format("My name is %s", myName);
+				String.format("My name is %s", myName)
+		);
 		/* ----------- */
 	}
 }

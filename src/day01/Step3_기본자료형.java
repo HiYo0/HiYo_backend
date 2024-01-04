@@ -1,6 +1,6 @@
 package day01;
 
-public class Step3 {
+public class Step3_기본자료형 {
     public static void main(String[] args) { // main()함수 // 실행시 필수! // main start
 
         // [ p. 41 ] 진수 표현하는 방법 [ int 타입이 자동으로 10진수로 변환 ]

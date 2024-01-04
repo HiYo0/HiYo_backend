@@ -1,6 +1,6 @@
 package day02;
 
-public class Step1 {    // 1. 자바의 모든 코드는 클래스 안에 만들어야함.
+public class Step1_변수타입변경 {    // 1. 자바의 모든 코드는 클래스 안에 만들어야함.
     public static void main(String[] args) {    // 2. main()함수 : main스레드포함 // main start
         // 스레드 어떠한 프로그램 내에서, 특히 프로세스 내에서 실행되는 흐름의 단위
         System.out.println("으아아 1번째 출력"); // 3. 콘솔 출력 함수

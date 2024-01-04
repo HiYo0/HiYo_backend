@@ -1,6 +1,6 @@
 package day01;  // 패키지명
 
-public class Step2 {    // class start
+public class Step2_변수오류 {    // class start
     public static void main(String[] args) { // main start
 
         // p.37

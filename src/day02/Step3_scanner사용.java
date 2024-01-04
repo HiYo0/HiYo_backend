@@ -2,7 +2,7 @@ package day02;
 
 import java.util.Scanner;
 
-public class Step3 { // class s
+public class Step3_scanner사용 { // class s
     public static void main(String[] args) { // main start
 
         // [p.70] 콘솔에서  키보드로 부터 입력 받고 변수에 저장

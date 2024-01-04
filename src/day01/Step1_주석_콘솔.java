@@ -1,6 +1,6 @@
 package day01; // 현재파일의 패키지 (폴더) 위치
 
-public class Step1 {    // 클래스 선언   // class start
+public class Step1_주석_콘솔 {    // 클래스 선언   // class start
     // public class : 클래스 선언 [ JAVA는 무조건 클래스 단위 ]
         // - *모든 코드는 클레스 안에서만 작성해야한다.
     // 클래스명 : Step1

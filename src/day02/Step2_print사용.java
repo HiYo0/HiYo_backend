@@ -2,7 +2,7 @@ package day02;
 
 import java.util.Arrays;
 
-public class Step2 { // class start
+public class Step2_print사용 { // class start
     public static void main(String[] args) { // main start
 
         // p.63 연결 연산자

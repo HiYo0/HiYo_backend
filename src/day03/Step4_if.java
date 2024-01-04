@@ -1,9 +1,8 @@
 package day03;
 
-import java.awt.*;
 import java.util.Scanner;
 
-public class Step4 { // class start
+public class Step4_if { // class start
     public static void main(String[] args) { // main start
 
         Scanner scanner = new Scanner(System.in);

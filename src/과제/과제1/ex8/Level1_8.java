@@ -36,7 +36,7 @@ public class Level1_8 {
 
 		// 입력
 		System.out.print("["+(++번호)+"]작성자 : ");		writer=scanner.nextLine();
-		System.out.print("["+번호+"]방문록 : ");		content=scanner.nextLine();
+		System.out.print("["+번호+"]방문록 : ");			content=scanner.nextLine();
 
 		output=" "+번호+"\t "+writer+"\t "+content+"\n";
 		boardlist+=output;
@@ -44,7 +44,7 @@ public class Level1_8 {
 
 		// 입력
 		System.out.print("["+(++번호)+"]작성자 : ");		writer=scanner.nextLine();
-		System.out.print("["+번호+"]방문록 : ");		content=scanner.nextLine();
+		System.out.print("["+번호+"]방문록 : ");			content=scanner.nextLine();
 
 		output=" "+번호+"\t "+writer+"\t "+content+"\n";
 		boardlist+=output;
@@ -52,7 +52,7 @@ public class Level1_8 {
 
 		// 입력
 		System.out.print("["+(++번호)+"]작성자 : ");		writer=scanner.nextLine();
-		System.out.print("["+번호+"]방문록 : ");		content=scanner.nextLine();
+		System.out.print("["+번호+"]방문록 : ");			content=scanner.nextLine();
 
 		output=" "+번호+"\t "+writer+"\t "+content+"\n";
 		boardlist+=output;

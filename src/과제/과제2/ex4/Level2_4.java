@@ -21,7 +21,8 @@ public class Level2_4 {
 //		System.out.println(com);
 		if(com==0){System.out.println("comran) 가위");
 		} else if (com==1){System.out.println("comran) 바위");
-		} else if (com==2){System.out.println("comran) 보");}
+		} else if (com==2){System.out.println("comran) 보");
+		}else {System.out.println("잘못 입력하신듯?");}
 
 		// 가위 = 0 //  바위 = 1  // 보 = 2
 		// 0 일때 0는 비김  0 일때 1은 승리 0일때 2는 패배
@@ -29,6 +30,7 @@ public class Level2_4 {
 		if(player.equals("가위")){result=0;}
 		else if (player.equals("바위")) {result=1;}
 		else if (player.equals("보")) {result=2;}
+		else {result='X';}
 
 		if(com==result){System.out.println("result) Player 무승부");}
 		else if (com==0 && result==1){System.out.println("result) Player 승리");}
@@ -37,6 +39,7 @@ public class Level2_4 {
 		else if (com==1 && result==2){System.out.println("result) Player 승리");}
 		else if (com==2 && result==0){System.out.println("result) Player 승리");}
 		else if (com==2 && result==1){System.out.println("result) Player 패배");}
+		else {System.out.println("result) Player 잘못입력함");}
 
 		/* ----------- */
 	}//main End

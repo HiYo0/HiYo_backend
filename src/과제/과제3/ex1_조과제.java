@@ -205,7 +205,7 @@ public class ex1_조과제 {
 
 
     }//main end
-}
+}//class End
 
 /*
 

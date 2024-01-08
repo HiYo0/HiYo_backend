@@ -1,9 +1,8 @@
 package day04;
 
-import java.awt.*;
 import java.util.Scanner;
 
-public class Step4 {//class start
+public class Step4_입력받고출력하기 {//class start
 
     public static void main(String[] args) {//main start
         Scanner scanner = new Scanner(System.in);

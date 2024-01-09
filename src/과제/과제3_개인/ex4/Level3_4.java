@@ -11,7 +11,22 @@ public class Level3_4 {
 		Scanner scanner = new Scanner(System.in);
 	
 		/* 문제풀이 위치 */
-	
+		int 누적 = 0;
+
+		while (true) {
+			String 네모 = "";
+			System.out.print("input : ");int 입력값 = scanner.nextInt();
+			누적 += 입력값;
+			if(누적>0) {
+				for (int i = 0; i < 누적; i++) {
+					네모 += "■";
+				}
+			}else {
+				break;
+			}
+			System.out.println(네모);
+
+		}//while End
 		/* ----------- */
 
 	}

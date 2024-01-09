@@ -1,5 +1,6 @@
 package 과제.과제3_개인.ex5;
 
+import java.time.Instant;
 import java.time.LocalDateTime;
 import java.util.Scanner;
 
@@ -13,7 +14,14 @@ public class Level3_5 {
 		String authNumber = "";
 		
 		/* 문제풀이 위치 */
-		
+
+		for (int i = 0; i <6 ; i++) {
+			double a = (int)(Math.random()*11-1);
+			authNumber += Integer.toString((int) a);
+
+		}
+		System.out.println("본인확인 인증번호 : "+authNumber);
+
 		/* ----------- */
 
 	}

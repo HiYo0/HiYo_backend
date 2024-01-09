@@ -1,4 +1,4 @@
-package 과제.과제3;
+package 과제.과제3_조과제;
 import java.util.Scanner;
 // 오승택 작성
 public class ex_조과제배열ver2 {

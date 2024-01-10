@@ -1,4 +1,4 @@
-package day6;
+package day06;
 
 public class Step1_배열주소_값비교 {//class start
     public static void main(String[] args) {//main start

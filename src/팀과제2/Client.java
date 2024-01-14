@@ -2,8 +2,8 @@ package 팀과제2;
 
 public class Client {//class start
 
-    String id="123";
-    String pw="";
+    String id;
+    String pw;
     int 구독기간=0;
     String 서비스형태 ="";
 

@@ -1,7 +1,6 @@
-package 팀과제2;
+package 과제.과제5.팀과제1_전승호;
 
 import java.util.Scanner;
-import java.util.SimpleTimeZone;
 
 public class 팀과제 {//class start
 
@@ -21,9 +20,9 @@ public class 팀과제 {//class start
 
         System.out.println("OOO솔루션 구독 및 판매시스템");
         while (true){//while start
-            System.out.println("-------------------");
-            System.out.println("1.회원가입 | 2.로그인");
-            System.out.println("-------------------");
+            System.out.println("----------------------------");
+            System.out.println("1.회원가입 | 2.로그인 | 3.종료");
+            System.out.println("----------------------------");
 //            for (int i = 0; i < 회원명단.length; i++) {//ID등록된거 확인하려고 만들어 둔거
 //                if (회원명단[i]!=null) {
 //                    System.out.println(회원명단[i].id);
@@ -73,8 +72,9 @@ public class 팀과제 {//class start
                         }
                     } // for end 중복검사
 
+
                     if (중복여부 == false) {
-                        System.out.print("1.다시쓸래 | 2.처음으로");
+                        System.out.print("1.다시쓸래 | 2.처음으로 입력 > ");
                         String 선택한기능 = scanner.nextLine();
                         if (선택한기능.equals("1")){
                             System.out.println("다시입력하세요");
@@ -84,10 +84,14 @@ public class 팀과제 {//class start
                     } else if (중복여부==true) {
                         break;
                     }
-                    if(존재하는배열수>회원명단.length/2){//배열
-///////////////////////////만드는중
+                    if(존재하는배열수>회원명단.length/2){//배열수 추가
+                        Client[] 회원명단2 = new Client[회원명단.length+50];
+                        for (int i = 0; i < 회원명단.length; i++) {
+                            회원명단2[i]=회원명단[i];
+                        }
+                        회원명단 = 회원명단2;
                     }
-//
+
                 }//while end [아이디 ]
 //////////////////////////////////////////////////////////////////////////
             } else if (선택한번호.equals("2")) {//로그인계좌번호

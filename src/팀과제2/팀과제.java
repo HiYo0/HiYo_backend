@@ -1,6 +1,7 @@
 package 팀과제2;
 
 import java.util.Scanner;
+import java.util.SimpleTimeZone;
 
 public class 팀과제 {//class start
 
@@ -85,11 +86,145 @@ public class 팀과제 {//class start
                     }
 
                 }//while end [아이디 ]
-
-
-
-
+//////////////////////////////////////////////////////////////////////////
             } else if (선택한번호.equals("2")) {//로그인계좌번호
+                int 존재하는배열수 = 0;
+                for (int i = 0; i < 회원명단.length; i++) {
+                    if (회원명단[i] == null) {
+                        존재하는배열수 = i;
+                        break;
+                    }
+                }
+                System.out.print("ID 를 입력해주세요 : "); String id = scanner.nextLine();
+                System.out.print("PW 를 입력해주세요 : "); String pw = scanner.nextLine();
+
+                boolean 로그인스위치 = false;
+                String 로그인된ID = "";
+                int 로그인된ID위치 = 0;
+                for (int i = 0; i < 존재하는배열수; i++) {
+                    if (id.equals(회원명단[i].id)&& pw.equals(회원명단[i].pw)){
+                        로그인스위치 = true;
+                        로그인된ID = 회원명단[i].id;
+                        로그인된ID위치 = i;
+                        break;
+                    }
+                }//로그인 유효성검사
+                if (로그인스위치 == true){
+                    System.out.println("\n로그인성공\n");
+                    while (true){//로그인 후 기능들
+                        System.out.println("기능을 선택해주세요");
+                        System.out.println("1.구독신청 | 2.사용현황 | 3.기간연장 | 4.로그아웃 ");
+                        System.out.print("선택 > "); String 로그인후기능 = scanner.nextLine();
+
+                        if (로그인후기능.equals("1")){// 구독신청
+                            System.out.println("신청하실 구독의 종류를 선택해주세요");
+                            System.out.println("1.Basic 2.Standard 3.Premiunm");
+                            System.out.print("선택(1~3) > "); String 서비스선택 = scanner.nextLine();
+
+                            if (서비스선택.equals("1")){
+                                System.out.println("선택하신 상품의 금액은 : "+서비스형태배열[0].금액+"원 입니다.");
+                                System.out.println("상품을 이용하시겠습니까?");
+                                System.out.print("1.예 | 2.아니요 > "); String ch = scanner.nextLine();
+                                if(ch.equals("1")) {
+                                    for (int i = 0; i < 존재하는배열수; i++) {
+                                        if (회원명단[i].id.equals(로그인된ID)) {
+                                            회원명단[i].구독기간 = 1;
+                                            회원명단[i].서비스형태 = 서비스형태배열[0].이름;
+                                            break;
+                                        }
+                                    }
+                                } else if (ch.equals("2")) {
+                                    System.out.println("");
+                                }else {
+                                    System.out.println("입력확인해주세요");
+                                }
+                            } else if (서비스선택.equals("2")) {
+                                System.out.println("선택하신 상품의 금액은 : "+서비스형태배열[1].금액+"원 입니다.");
+                                System.out.println("상품을 이용하시겠습니까?");
+                                System.out.print("1.예 | 2.아니요"); String ch = scanner.nextLine();
+                                if(ch.equals("1")) {
+                                    for (int i = 0; i < 존재하는배열수; i++) {
+                                        if(회원명단[i].id.equals(로그인된ID)){
+                                            회원명단[i].구독기간 = 1;
+                                            회원명단[i].서비스형태 = 서비스형태배열[1].이름;
+                                            break;
+                                        }
+                                    }
+                                } else if (ch.equals("2")) {
+                                    System.out.println("");
+                                }else {
+                                    System.out.println("입력확인해주세요");
+                                }
+                            } else if (서비스선택.equals("3")) {
+                                System.out.println("선택하신 상품의 금액은 : "+서비스형태배열[2].금액+"원 입니다.");
+                                System.out.println("상품을 이용하시겠습니까?");
+                                System.out.print("1.예 | 2.아니요"); String ch = scanner.nextLine();
+                                if(ch.equals("1")) {
+                                    for (int i = 0; i < 존재하는배열수; i++) {
+                                        if(회원명단[i].id.equals(로그인된ID)){
+                                            회원명단[i].구독기간 = 1;
+                                            회원명단[i].서비스형태 = 서비스형태배열[2].이름;
+                                            break;
+                                        }
+                                    }
+                                } else if (ch.equals("2")) {
+                                    System.out.println("");
+                                }else {
+                                    System.out.println("입력확인해주세요");
+                                }
+
+                            }
+
+                        } else if (로그인후기능.equals("2")) {// 사용현황
+                            System.out.println("============================");
+                            System.out.println("|       사용현황            |");
+                            System.out.println("============================");
+                            System.out.println("현재 ID : "+회원명단[로그인된ID위치].id);
+                            System.out.println("현재구독상품 : "+회원명단[로그인된ID위치].서비스형태);
+                            System.out.println("현재남은 구독기간 : "+회원명단[로그인된ID위치].구독기간+" 개월");
+                            String 용량 = "";
+                            for (int i = 0; i <서비스형태배열.length ; i++) {
+                                if (회원명단[로그인된ID위치].서비스형태.equals(서비스형태배열[i].이름)){
+                                    용량=서비스형태배열[i].용량;
+                                }
+                            }
+                            System.out.println("사용가능용량 : "+용량);
+                            String 인원 = "";
+                            for (int i = 0; i <서비스형태배열.length ; i++) {
+                                if (회원명단[로그인된ID위치].서비스형태.equals(서비스형태배열[i].이름)){
+                                    인원=서비스형태배열[i].사용인원;
+                                }
+                            }
+                            System.out.println("사용가능인원 : "+인원);
+
+                        } else if (로그인후기능.equals("3")) {// 기간연장
+                            System.out.print("연장기간을 적어주세요 : "); int month = scanner.nextInt();
+
+                            회원명단[로그인된ID위치].구독기간+=month;
+
+                            System.out.println("\n연장되었습니다.\n");
+
+                        } else if (로그인후기능.equals("4")) {// 로그아웃
+                            System.out.println("\n로그아웃 되었습니다.\n");
+                            로그인된ID ="";
+                            break;
+                        }else {
+                            System.out.println("\n\n");
+                        }
+
+
+                    }// 로그인후 기능들
+
+
+                }else {
+                    System.out.println("\n로그인실패 ID와 Password 를 확인해주세요\n");
+                }
+
+
+
+
+
+
 
             } else if (선택한번호.equals("3")) {
                 break;

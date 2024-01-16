@@ -1,4 +1,4 @@
-package 과제.과제5.과제1;
+package 과제.과제5_팀.과제1;
 
 public class Account {//class start
     // 필드 : 정석 vs 인스턴스

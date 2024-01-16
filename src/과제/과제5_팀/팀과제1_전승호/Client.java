@@ -1,4 +1,4 @@
-package 과제.과제5.팀과제1_전승호;
+package 과제.과제5_팀.팀과제1_전승호;
 
 public class Client {//class start
 

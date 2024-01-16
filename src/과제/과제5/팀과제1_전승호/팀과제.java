@@ -140,9 +140,9 @@ public class 팀과제 {//class start
                         if (myService.equals("1")){// 구독신청
                             System.out.println("신청하실 구독의 종류를 선택해주세요");
                             System.out.println("1.Basic 2.Standard 3.Premiunm");
-                            System.out.print("선택(1~3) > "); String 서비스선택 = scanner.nextLine();
+                            System.out.print("선택(1~3) > "); String subscribe = scanner.nextLine();
 
-                            if (서비스선택.equals("1")){
+                            if (subscribe.equals("1")){
                                 System.out.println("선택하신 상품의 금액은 : "+서비스형태배열[0].금액+"원 입니다.");
                                 System.out.println("상품을 이용하시겠습니까?");
                                 System.out.print("1.예 | 2.아니요 > "); String ch = scanner.nextLine();
@@ -159,7 +159,7 @@ public class 팀과제 {//class start
                                 }else {
                                     System.out.println("입력확인해주세요");
                                 }
-                            } else if (서비스선택.equals("2")) {
+                            } else if (subscribe.equals("2")) {
                                 System.out.println("선택하신 상품의 금액은 : "+서비스형태배열[1].금액+"원 입니다.");
                                 System.out.println("상품을 이용하시겠습니까?");
                                 System.out.print("1.예 | 2.아니요"); String ch = scanner.nextLine();
@@ -172,11 +172,11 @@ public class 팀과제 {//class start
                                         }
                                     }
                                 } else if (ch.equals("2")) {
-                                    System.out.println("");
+                                    System.out.println();
                                 }else {
                                     System.out.println("입력확인해주세요");
                                 }
-                            } else if (서비스선택.equals("3")) {
+                            } else if (subscribe.equals("3")) {
                                 System.out.println("선택하신 상품의 금액은 : "+서비스형태배열[2].금액+"원 입니다.");
                                 System.out.println("상품을 이용하시겠습니까?");
                                 System.out.print("1.예 | 2.아니요"); String ch = scanner.nextLine();
@@ -189,7 +189,7 @@ public class 팀과제 {//class start
                                         }
                                     }
                                 } else if (ch.equals("2")) {
-                                    System.out.println("");
+                                    System.out.println();
                                 }else {
                                     System.out.println("입력확인해주세요");
                                 }
@@ -203,13 +203,13 @@ public class 팀과제 {//class start
                             System.out.println("현재 ID : "+uesrList[loginIndex].id);
                             System.out.println("현재구독상품 : "+uesrList[loginIndex].서비스형태);
                             System.out.println("현재남은 구독기간 : "+uesrList[loginIndex].구독기간+" 개월");
-                            String 용량 = "";
+                            String Volume = "";
                             for (int i = 0; i <서비스형태배열.length ; i++) {
                                 if (uesrList[loginIndex].서비스형태.equals(서비스형태배열[i].이름)){
-                                    용량=서비스형태배열[i].용량;
+                                    Volume=서비스형태배열[i].용량;
                                 }
                             }
-                            System.out.println("사용가능용량 : "+용량);
+                            System.out.println("사용가능Volume : "+Volume);
                             String 인원 = "";
                             for (int i = 0; i <서비스형태배열.length ; i++) {
                                 if (uesrList[loginIndex].서비스형태.equals(서비스형태배열[i].이름)){

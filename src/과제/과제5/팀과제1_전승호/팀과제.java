@@ -12,27 +12,30 @@ public class 팀과제 {//class start
         서비스형태[] 서비스형태배열 = new 서비스형태[]{Basic,Standard,Premiunm};
 
 
-        Client[] 회원명단 = new Client[100];
+        Client[] uesrList = new Client[10];
         Scanner scanner = new Scanner(System.in);
 
 //            Client 임시객체 = new Client("","",0,"");
-//            회원명단[0]=임시객체;
+//            uesrList[0]=임시객체;
 
         System.out.println("OOO솔루션 구독 및 판매시스템");
         while (true){//while start
+            System.out.println("uesrList 수 : "+uesrList.length);
             System.out.println("----------------------------");
             System.out.println("1.회원가입 | 2.로그인 | 3.종료");
             System.out.println("----------------------------");
-//            for (int i = 0; i < 회원명단.length; i++) {//ID등록된거 확인하려고 만들어 둔거
-//                if (회원명단[i]!=null) {
-//                    System.out.println(회원명단[i].id);
-//                }
-//            }
+            for (Client value : uesrList) {//ID등록된거 확인하려고 만들어 둔거
+                if (value == null) {
+                    break;
+                } else {
+                    System.out.println(value.id);
+                }
+            }
 
-            System.out.print("기능을 선택해주세요 ( 1~2 ) : "); String 선택한번호 = scanner.nextLine();
+            System.out.print("기능을 선택해주세요 ( 1~2 ) : "); String chooseNo = scanner.nextLine();
 
 
-            if (선택한번호.equals("1")) {//회원가입
+            if (chooseNo.equals("1")) {//회원가입
                 while (true) {
                     System.out.println("회원가입 실행");
                     System.out.print("희망하는 ID를 입력해주세요 : ");
@@ -41,89 +44,100 @@ public class 팀과제 {//class start
                     String pw = scanner.nextLine();
                     Client client = new Client(id, pw, 0, "");
 
-                    int 저장한배열위치 = 0;
-                    for (int j = 0; j < 회원명단.length; j++) {
-                        if (회원명단[j] == null) {
-                            회원명단[j] = client;
-                            저장한배열위치 = j;
+                    int uesrIndex = 0;
+                    for (int j = 0; j < uesrList.length; j++) {
+                        if (uesrList[j] == null) {
+                            uesrList[j] = client;
+                            uesrIndex = j;
                             break;
                         }
                     }// 빈 배열에 일단 입력받은 값 넣기
 
-                    int 존재하는배열수 = 0;
-                    for (int i = 0; i < 회원명단.length; i++) {
-                        if (회원명단[i] == null) {
-                            존재하는배열수 = i;
+                    int arrangementCount = 0;
+                    for (int i = 0; i < uesrList.length; i++) {
+                        if (uesrList[i] == null) {
+                            arrangementCount = i;
                             break;
                         }
                     }// 존재하고있는 배열수 구하는 for문 종료
 
-                    boolean 중복여부 = true;//true= 중복없음 | false= 중복있음
-                    for (int i = 0; i < 존재하는배열수; i++) {//중복검사 for문
-                        if (회원명단[i].id.equals(client.id)) {
-                            if(회원명단[i]==회원명단[저장한배열위치]){
+                    boolean duplication = true;//true= 중복없음 | false= 중복있음
+                    for (int i = 0; i < arrangementCount; i++) {//중복검사 for문
+                        if (uesrList[i].id.equals(client.id)) {
+                            if(uesrList[i]==uesrList[uesrIndex]){
                                 System.out.println("회원가입 완료2");
+                                if(arrangementCount>uesrList.length/2) {//배열수 추가
+//                                    System.out.println("실행됨\n\n");
+                                    // 배열길이 증가
+                                    Client[] uesrList2 = new Client[uesrList.length + 10];
+                                    for (int j = 0; j < uesrList.length; j++) {
+                                        uesrList2[j] = uesrList[j];
+                                    }
+                                    uesrList = uesrList2;
+                                }
                             }else {
                                 System.out.println("\n이미있는 ID 입니다.\n");
-                                회원명단[저장한배열위치] = null;
-                                중복여부 = false;
+                                uesrList[uesrIndex] = null;
+                                duplication = false;
                                 break;
                             }
                         }
                     } // for end 중복검사
 
 
-                    if (중복여부 == false) {
+                    if (!duplication) {//false 일때
                         System.out.print("1.다시쓸래 | 2.처음으로 입력 > ");
-                        String 선택한기능 = scanner.nextLine();
-                        if (선택한기능.equals("1")){
+                        String chooseService = scanner.nextLine();
+                        if (chooseService.equals("1")){
                             System.out.println("다시입력하세요");
-                        } else if (선택한기능.equals("2")) {
+                        } else if (chooseService.equals("2")) {
                             break;
                         }
-                    } else if (중복여부==true) {
+                    } else{ // true 일때
                         break;
                     }
-                    if(존재하는배열수>회원명단.length/2){//배열수 추가
-                        Client[] 회원명단2 = new Client[회원명단.length+50];
-                        for (int i = 0; i < 회원명단.length; i++) {
-                            회원명단2[i]=회원명단[i];
+                    if(arrangementCount>uesrList.length/2){//배열수 추가
+//                        System.out.println("실행됨\n\n");
+                        Client[] uesrList2 = new Client[uesrList.length+10];
+                        for (int i = 0; i < uesrList.length; i++) {
+                            uesrList2[i]=uesrList[i];
                         }
-                        회원명단 = 회원명단2;
+                        uesrList = uesrList2;
                     }
 
                 }//while end [아이디 ]
 //////////////////////////////////////////////////////////////////////////
-            } else if (선택한번호.equals("2")) {//로그인계좌번호
-                int 존재하는배열수 = 0;
-                for (int i = 0; i < 회원명단.length; i++) {
-                    if (회원명단[i] == null) {
-                        존재하는배열수 = i;
+            } else if (chooseNo.equals("2")) {//로그인계좌번호
+                int arrangementCount = 0;
+                for (int i = 0; i < uesrList.length; i++) {
+                    if (uesrList[i] == null) {
+                        arrangementCount = i;
+                        // 존재하는 배열수 저장
                         break;
                     }
                 }
                 System.out.print("ID 를 입력해주세요 : "); String id = scanner.nextLine();
                 System.out.print("PW 를 입력해주세요 : "); String pw = scanner.nextLine();
 
-                boolean 로그인스위치 = false;
-                String 로그인된ID = "";
-                int 로그인된ID위치 = 0;
-                for (int i = 0; i < 존재하는배열수; i++) {
-                    if (id.equals(회원명단[i].id)&& pw.equals(회원명단[i].pw)){
-                        로그인스위치 = true;
-                        로그인된ID = 회원명단[i].id;
-                        로그인된ID위치 = i;
+                boolean loginSwich = false;
+                String loginID = "";
+                int loginIndex = 0;
+                for (int i = 0; i < arrangementCount; i++) {
+                    if (id.equals(uesrList[i].id)&& pw.equals(uesrList[i].pw)){
+                        loginSwich = true;
+                        loginID = uesrList[i].id;
+                        loginIndex = i;
                         break;
                     }
                 }//로그인 유효성검사
-                if (로그인스위치 == true){
+                if (loginSwich){
                     System.out.println("\n로그인성공\n");
                     while (true){//로그인 후 기능들
                         System.out.println("기능을 선택해주세요");
                         System.out.println("1.구독신청 | 2.사용현황 | 3.기간연장 | 4.로그아웃 ");
-                        System.out.print("선택 > "); String 로그인후기능 = scanner.nextLine();
+                        System.out.print("선택 > "); String myService = scanner.nextLine();
 
-                        if (로그인후기능.equals("1")){// 구독신청
+                        if (myService.equals("1")){// 구독신청
                             System.out.println("신청하실 구독의 종류를 선택해주세요");
                             System.out.println("1.Basic 2.Standard 3.Premiunm");
                             System.out.print("선택(1~3) > "); String 서비스선택 = scanner.nextLine();
@@ -133,10 +147,10 @@ public class 팀과제 {//class start
                                 System.out.println("상품을 이용하시겠습니까?");
                                 System.out.print("1.예 | 2.아니요 > "); String ch = scanner.nextLine();
                                 if(ch.equals("1")) {
-                                    for (int i = 0; i < 존재하는배열수; i++) {
-                                        if (회원명단[i].id.equals(로그인된ID)) {
-                                            회원명단[i].구독기간 = 1;
-                                            회원명단[i].서비스형태 = 서비스형태배열[0].이름;
+                                    for (int i = 0; i < arrangementCount; i++) {
+                                        if (uesrList[i].id.equals(loginID)) {
+                                            uesrList[i].구독기간 = 1;
+                                            uesrList[i].서비스형태 = 서비스형태배열[0].이름;
                                             break;
                                         }
                                     }
@@ -150,10 +164,10 @@ public class 팀과제 {//class start
                                 System.out.println("상품을 이용하시겠습니까?");
                                 System.out.print("1.예 | 2.아니요"); String ch = scanner.nextLine();
                                 if(ch.equals("1")) {
-                                    for (int i = 0; i < 존재하는배열수; i++) {
-                                        if(회원명단[i].id.equals(로그인된ID)){
-                                            회원명단[i].구독기간 = 1;
-                                            회원명단[i].서비스형태 = 서비스형태배열[1].이름;
+                                    for (int i = 0; i < arrangementCount; i++) {
+                                        if(uesrList[i].id.equals(loginID)){
+                                            uesrList[i].구독기간 = 1;
+                                            uesrList[i].서비스형태 = 서비스형태배열[1].이름;
                                             break;
                                         }
                                     }
@@ -167,10 +181,10 @@ public class 팀과제 {//class start
                                 System.out.println("상품을 이용하시겠습니까?");
                                 System.out.print("1.예 | 2.아니요"); String ch = scanner.nextLine();
                                 if(ch.equals("1")) {
-                                    for (int i = 0; i < 존재하는배열수; i++) {
-                                        if(회원명단[i].id.equals(로그인된ID)){
-                                            회원명단[i].구독기간 = 1;
-                                            회원명단[i].서비스형태 = 서비스형태배열[2].이름;
+                                    for (int i = 0; i < arrangementCount; i++) {
+                                        if(uesrList[i].id.equals(loginID)){
+                                            uesrList[i].구독기간 = 1;
+                                            uesrList[i].서비스형태 = 서비스형태배열[2].이름;
                                             break;
                                         }
                                     }
@@ -182,38 +196,38 @@ public class 팀과제 {//class start
 
                             }
 
-                        } else if (로그인후기능.equals("2")) {// 사용현황
+                        } else if (myService.equals("2")) {// 사용현황
                             System.out.println("============================");
                             System.out.println("|       사용현황            |");
                             System.out.println("============================");
-                            System.out.println("현재 ID : "+회원명단[로그인된ID위치].id);
-                            System.out.println("현재구독상품 : "+회원명단[로그인된ID위치].서비스형태);
-                            System.out.println("현재남은 구독기간 : "+회원명단[로그인된ID위치].구독기간+" 개월");
+                            System.out.println("현재 ID : "+uesrList[loginIndex].id);
+                            System.out.println("현재구독상품 : "+uesrList[loginIndex].서비스형태);
+                            System.out.println("현재남은 구독기간 : "+uesrList[loginIndex].구독기간+" 개월");
                             String 용량 = "";
                             for (int i = 0; i <서비스형태배열.length ; i++) {
-                                if (회원명단[로그인된ID위치].서비스형태.equals(서비스형태배열[i].이름)){
+                                if (uesrList[loginIndex].서비스형태.equals(서비스형태배열[i].이름)){
                                     용량=서비스형태배열[i].용량;
                                 }
                             }
                             System.out.println("사용가능용량 : "+용량);
                             String 인원 = "";
                             for (int i = 0; i <서비스형태배열.length ; i++) {
-                                if (회원명단[로그인된ID위치].서비스형태.equals(서비스형태배열[i].이름)){
+                                if (uesrList[loginIndex].서비스형태.equals(서비스형태배열[i].이름)){
                                     인원=서비스형태배열[i].사용인원;
                                 }
                             }
                             System.out.println("사용가능인원 : "+인원);
 
-                        } else if (로그인후기능.equals("3")) {// 기간연장
+                        } else if (myService.equals("3")) {// 기간연장
                             System.out.print("연장기간을 적어주세요 : "); int month = scanner.nextInt();
 
-                            회원명단[로그인된ID위치].구독기간+=month;
+                            uesrList[loginIndex].구독기간+=month;
 
                             System.out.println("\n연장되었습니다.\n");
 
-                        } else if (로그인후기능.equals("4")) {// 로그아웃
+                        } else if (myService.equals("4")) {// 로그아웃
                             System.out.println("\n로그아웃 되었습니다.\n");
-                            로그인된ID ="";
+                            loginID ="";
                             break;
                         }else {
                             System.out.println("\n\n");
@@ -233,7 +247,7 @@ public class 팀과제 {//class start
 
 
 
-            } else if (선택한번호.equals("3")) {
+            } else if (chooseNo.equals("3")) {
                 break;
             } else {
                 System.out.println("\n기능선택 오류!\n");

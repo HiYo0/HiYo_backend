@@ -7,8 +7,8 @@ public class 팀과제 {//class start
         Scanner scanner=new Scanner(System.in);
 
         서비스형태 Basic = new 서비스형태("Basic","1TB","2",10000);
-        서비스형태 Standard = new 서비스형태("Standard","2TB","2",11000);
-        서비스형태 Premiunm = new 서비스형태("Premiunm","3TB","2",12000);
+        서비스형태 Standard = new 서비스형태("Standard","2TB","3",11000);
+        서비스형태 Premiunm = new 서비스형태("Premiunm","3TB","5",12000);
 
         서비스형태[] 서비스형태배열 = new 서비스형태[]{Basic,Standard,Premiunm};
 

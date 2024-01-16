@@ -8,12 +8,13 @@ public class 팀과제 {//class start
 
         서비스형태 Basic = new 서비스형태("Basic","1TB","2",10000);
         서비스형태 Standard = new 서비스형태("Standard","2TB","3",11000);
-        서비스형태 Premiunm = new 서비스형태("Premiunm","3TB","5",12000);
+        서비스형태 Premiunm = new 서비스형태("Premiunm","3TB","4",12000);
 
         서비스형태[] 서비스형태배열 = new 서비스형태[]{Basic,Standard,Premiunm};
 
-        Client[] client=new Client[100];
-        client[0]=new Client("admin", "1234");
+        Client[] client=new Client[0];
+        int count=0;
+        //client[0]=new Client("admin", "1234");
 
         Client currentC=new Client(null,null);
 
@@ -24,28 +25,24 @@ public class 팀과제 {//class start
         while(true) {//프로그램 시작
             while (true) {//로그인 페이지
                 System.out.println("1.회원가입 | 2. 로그인");
-                System.out.println("선택 > ");
+                System.out.print("선택 > ");
                 int enter = scanner.nextInt();
                 scanner.nextLine();
-
-                //test
-                System.out.println(client.length);
 
                 //회원가입
                 if (enter == 1) {
                     boolean checkId = true;   //유효성 검사 결과 출력 변수
 
                     //입력
-                    System.out.println("생성할 id : ");
+                    System.out.print("생성할 id : ");
                     String newId = scanner.nextLine();
-                    System.out.println("생성할 pass : ");
+                    System.out.print("생성할 pass : ");
                     String newPass = scanner.nextLine();
 
                     //생성할 아이디 유효성검사
                     for (int i = 0; i < client.length; i++) {//for start
                         if (client[i] == null) {//if start
                                 break;
-
                         }
                         if (newId.equals(client[i].id)) {
                             System.out.println("아이디가 존재합니다.");
@@ -55,6 +52,24 @@ public class 팀과제 {//class start
 
                     //회원 등록
                     if (checkId) {//if start
+                        count++;    //배열 길이 추가
+                        Client[] temp=new Client[count];    //스왑용 배열 생성
+
+                        //배열 스왑
+                        for(int i=0; i<client.length; i++){
+                            temp[i]=client[i];
+                        }
+
+                        //기존 배열 길이 +1로 새로 선언
+                        client=new Client[count];
+
+                        //스왑 -> 기존 배열로 데이터 이동
+                        for(int z=0; z<temp.length; z++){
+                            client[z]=temp[z];
+                        }
+
+                        //새로운 회원 정보 대입
+                        System.out.println(client.length);
                         for (int j = 0; j < client.length; j++) {//for start
                             if (client[j] == null) {//if start
                                 client[j] = new Client(newId, newPass);
@@ -92,16 +107,18 @@ public class 팀과제 {//class start
                         if (id.equals(client[i].id) && pw.equals(client[i].pw)) {
                             checkLogin = true;
                             currentC = client[i];
-                        } else {
-                            System.out.println("다시 입력 해 주십시오.");
+                            break;
                         }//if end
                     }//for end
 
                     //로그인 성공
                     if (checkLogin) {//if start
-                        System.out.println("로그인 성공");
+                        System.out.println("★로그인 성공★");
                         break;
                     }//if end
+                    else{
+                        System.out.println("다시 입력 해 주십시오.");
+                    }
 
                 }//else if end
 
@@ -193,6 +210,7 @@ public class 팀과제 {//class start
                 }//else if end
                 else if (sCategory == 4) {
                     System.out.print("로그아웃하시겠습니까? 1.확인 | 2.취소");
+                    System.out.print("선택 > ");
                     int checkOut = scanner.nextInt();
                     if (checkOut == 1) {
                         System.out.println("로그아웃 되었습니다.");

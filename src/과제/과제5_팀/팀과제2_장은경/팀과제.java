@@ -1,5 +1,7 @@
 package 과제.과제5_팀.팀과제2_장은경;
 
+
+import java.util.Calendar;
 import java.util.Scanner;
 
 public class 팀과제 {//class start
@@ -18,19 +20,19 @@ public class 팀과제 {//class start
 
         Client currentC=new Client(null,null);
 
-        for(int i=0; i<서비스형태배열.length; i++){//for start
+        //test
+        /*for(int i=0; i<서비스형태배열.length; i++){//for start
             System.out.println(서비스형태배열[i].이름);
-        }//for end
+        }//for end*/
 
         while(true) {//프로그램 시작
             while (true) {//로그인 페이지
                 System.out.println("1.회원가입 | 2. 로그인");
                 System.out.print("선택 > ");
-                int enter = scanner.nextInt();
-                scanner.nextLine();
+                String enter = scanner.nextLine();
 
                 //회원가입
-                if (enter == 1) {
+                if (enter.equals("1")) {
                     boolean checkId = true;   //유효성 검사 결과 출력 변수
 
                     //입력
@@ -42,7 +44,7 @@ public class 팀과제 {//class start
                     //생성할 아이디 유효성검사
                     for (int i = 0; i < client.length; i++) {//for start
                         if (client[i] == null) {//if start
-                                break;
+                            break;
                         }
                         if (newId.equals(client[i].id)) {
                             System.out.println("아이디가 존재합니다.");
@@ -69,7 +71,6 @@ public class 팀과제 {//class start
                         }
 
                         //새로운 회원 정보 대입
-                        System.out.println(client.length);
                         for (int j = 0; j < client.length; j++) {//for start
                             if (client[j] == null) {//if start
                                 client[j] = new Client(newId, newPass);
@@ -80,45 +81,61 @@ public class 팀과제 {//class start
                     }//if end (checkId)
 
                     //회원정보 확인(test)
-                    for (int z = 0; z < client.length; z++) {
+                    /*for (int z = 0; z < client.length; z++) {
                         if (client[z] == null) {
                             break;
                         }
                         System.out.printf("%8s%8s\n", client[z].id, client[z].pw);
-                    }
+                    }*/
 
                 }//if end
 
                 //로그인
-                else if (enter == 2) {
-                    boolean checkLogin = false;   //로그인 유효성검사 결과 출력 변수
+                else if (enter.equals("2")) {
+                    boolean back=false;
 
-                    //입력
-                    System.out.print("id : ");
-                    String id = scanner.nextLine();
-                    System.out.print("pass : ");
-                    String pw = scanner.nextLine();
+                    while(true) {//아이디가 일치하지 않을경우 다시 로그인을 받기위한 while
+                        boolean checkLogin = false;   //로그인 유효성검사 결과 출력 변수
 
-                    //로그인 유효성검사(아이디, 비번 일치 여부 판별)
-                    for (int i = 0; i < client.length; i++) {//로그인
-                        if (client[i] == null) {//if start
-                            break;
-                        }
-                        if (id.equals(client[i].id) && pw.equals(client[i].pw)) {
-                            checkLogin = true;
-                            currentC = client[i];
+                        //입력
+                        System.out.print("id : ");
+                        String id = scanner.nextLine();
+                        System.out.print("pass : ");
+                        String pw = scanner.nextLine();
+
+                        //로그인 유효성검사(아이디, 비번 일치 여부 판별)
+                        for (int i = 0; i < client.length; i++) {//로그인
+                            if (client[i] == null) {//if start
+                                break;
+                            }
+                            if (id.equals(client[i].id) && pw.equals(client[i].pw)) {
+                                checkLogin = true;
+                                currentC = client[i];
+                                break;
+                            }//if end
+                        }//for end
+
+                        //로그인 성공
+                        if (checkLogin) {//if start
+                            System.out.println("★로그인 성공★");
                             break;
                         }//if end
-                    }//for end
+                        else {
+                            System.out.println("다시 입력하시겠습니까? 1.예 | 2.아니오");
+                            System.out.print("선택 > ");
+                            String reLog=scanner.nextLine();
 
-                    //로그인 성공
-                    if (checkLogin) {//if start
-                        System.out.println("★로그인 성공★");
-                        break;
-                    }//if end
-                    else{
-                        System.out.println("다시 입력 해 주십시오.");
+                            if(reLog.equals("2")){
+                                back=true;
+                                break;
+                            }//if end
+                        }//else end
+                    }//while end
+
+                    if(back){
+                        continue;
                     }
+                    break;
 
                 }//else if end
 
@@ -141,16 +158,17 @@ public class 팀과제 {//class start
                 //입력
                 System.out.println("1.구독신청 | 2.사용현황 | 3.기간연장 | 4.로그아웃");
                 System.out.print("선택 > ");
-                int sCategory = scanner.nextInt();
+                String sCategory = scanner.nextLine();
 
-                if (sCategory == 1) {//1.구독신청 선택
+                if (sCategory.equals("1")) {//1.구독신청 선택
                     System.out.println("1.Basic | 2.Standard | 3.Premiun");
                     System.out.print("선택 > ");
-                    int sType = scanner.nextInt();
-                    scanner.nextLine();
-                    if (sType <= 서비스형태배열.length) {
-                        System.out.println("선택한 서비스 : " + 서비스형태배열[sType - 1].이름);
-                        System.out.println("금액 : " + 서비스형태배열[sType - 1].금액);
+                    String sType = scanner.nextLine();
+                    int iType=Integer.parseInt(sType);
+
+                    if ( iType <= 서비스형태배열.length) {
+                        System.out.println("선택한 서비스 : " + 서비스형태배열[iType - 1].이름);
+                        System.out.println("금액 : " + 서비스형태배열[iType - 1].금액);
 
                         //구독 동의여부 출력
                         System.out.println("구독하시겠습니까? (yes/no 로 답변 해 주십시오.)");
@@ -160,7 +178,7 @@ public class 팀과제 {//class start
 
                         if (strcheckSub.equals("yes")) {//if start
                             //현재 id에 해당하는 정보 불러오기
-                            currentC.서비스형태 = 서비스형태배열[sType - 1].이름;
+                            currentC.서비스형태 = 서비스형태배열[iType - 1].이름;
                             currentC.구독기간 = 1;
                         } else if (strcheckSub.equals("no")) {
                             continue;
@@ -170,7 +188,7 @@ public class 팀과제 {//class start
                     }
                 }//if==1 end
 
-                else if (sCategory == 2) {//2.사용현황 선택
+                else if (sCategory.equals("2")) {//2.사용현황 선택
                     System.out.println("ID : " + currentC.id);
                     System.out.println("구독기간 : " + currentC.구독기간 + "[개월]");
                     System.out.println("이용 서비스 : " + currentC.서비스형태);
@@ -183,7 +201,7 @@ public class 팀과제 {//class start
                     }//for end
 
                 }//else if end
-                else if (sCategory == 3) {//3. 기간연장
+                else if (sCategory.equals("3")) {//3. 기간연장
                     System.out.print("연장기간을 [개월] 단위로 입력 해 주십시오. : ");
                     int addMonth = scanner.nextInt();
                     scanner.nextLine();
@@ -208,22 +226,25 @@ public class 팀과제 {//class start
                     }//if end
 
                 }//else if end
-                else if (sCategory == 4) {
-                    System.out.print("로그아웃하시겠습니까? 1.확인 | 2.취소");
+                else if (sCategory.equals("4")) {
+                    System.out.println("로그아웃하시겠습니까? 1.확인 | 2.취소");
                     System.out.print("선택 > ");
-                    int checkOut = scanner.nextInt();
-                    if (checkOut == 1) {
+                    String checkOut = scanner.nextLine();
+                    if (checkOut.equals("1")) {
                         System.out.println("로그아웃 되었습니다.");
                         break;
-                    } else if (checkOut == 2) {
+                    } else if (checkOut.equals("2")) {
                         System.out.println("취소선택");
                     } else {
                         System.out.println("유효하지 않은 입력입니다.");
                     }
-                }
+                }//else if end
+                else{
+                    System.out.println("올바르지 않은 입력입니다.");
+                }//else end
 
             }//while end
         }//while end(프로그램 끝)
-        
+
     }//main end
 }//class end

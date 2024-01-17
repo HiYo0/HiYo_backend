@@ -30,15 +30,13 @@ public class MemberDao {//class start
     // 1. 회원가입 메소드
     public boolean signup(MemberDto memberDto){
         System.out.println("MemberDao.signup");
-        memberDtos.add( memberDto );
-/*
-for (int i = 0; i < memberDtos.length; i++) {
-    if(memberDtos[i]==null){
-        memberDtos[i] = memberDto;
-        return true; // 회원가입 성공
-    }
-}
-*/
+        if(중복검사(memberDto.getId())){
+            memberDtos.add( memberDto );
+
+        }else {
+            return false;
+        }
+
         return true; // 회원가입성공
     }
     // 2. 로그인 메소드
@@ -49,7 +47,7 @@ for (int i = 0; i < memberDtos.length; i++) {
 
         for (int i = 0; i < memberDtos.size(); i++) {
             //i 는 0 부터 리스트내 요소 개수 까지 1씩 증가
-            if(memberDtos.get(i).getId().equals(memberDto.getId())){
+            if(중복검사(memberDto.getId())){
                 // 리스트내 i번째 객체의 아이디 와 입력받은 아이디(매개변수) 같으면
                 if(memberDtos.get(i).getId().equals(memberDto.getPw())){
                     return true; // 로그인 성공
@@ -58,6 +56,18 @@ for (int i = 0; i < memberDtos.length; i++) {
         }//for end
 
         return false;// 로그인 실패
+    }
+
+    // 3. ID중복검사
+    private boolean 중복검사(String id){
+        for (int i = 0; i < memberDtos.size(); i++) { // 중복검사
+            if(memberDtos.get(i).getId().equals(id)){
+                System.out.println("\n중복된 ID가 있습니다.\n");
+                return false;
+            }
+        }
+
+        return true;
     }
 
 

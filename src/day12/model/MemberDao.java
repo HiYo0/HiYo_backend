@@ -59,7 +59,7 @@ public class MemberDao {//class start
     }
 
     // 3. ID중복검사
-    private boolean 중복검사(String id){
+    public boolean 중복검사(String id){
         for (int i = 0; i < memberDtos.size(); i++) { // 중복검사
             if(memberDtos.get(i).getId().equals(id)){
                 System.out.println("\n중복된 ID가 있습니다.\n");

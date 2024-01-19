@@ -70,7 +70,7 @@ public class MemberDao {//class start
         }
         for (int i = 0; i < 배열.size(); i++) {
             if (배열.get(i).get아이디().equals(id) && 배열.get(i).get이름().equals(name)&&배열.get(i).get전화번호().equals(phone)) {
-
+                배열.get(i).set비밀번호(임시비밀번호);
                 return 임시비밀번호;
             }
         }

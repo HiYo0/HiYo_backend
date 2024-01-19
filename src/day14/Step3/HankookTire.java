@@ -1,6 +1,6 @@
 package day14.Step3;
 
-public class HangkookTire extends Tire {//class start
+public class HankookTire extends Tire {//class start
 
     @Override
     public void roll() {

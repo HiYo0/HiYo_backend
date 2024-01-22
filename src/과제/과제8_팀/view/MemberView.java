@@ -1,9 +1,9 @@
 package 과제.과제8_팀.view;
 
-import java.util.Scanner;
 import 과제.과제8_팀.model.*;
 import 과제.과제8_팀.controller.*;
 
+import java.util.Scanner;
 public class MemberView {//class start
 
     // 싱글톤
@@ -45,12 +45,11 @@ public class MemberView {//class start
                         // return 값으로 boolean 을받음
                     System.out.println("\n성공적으로 계좌가 생성되었습니다.\n");
 //                 테스트
-//                    for(int i=0; i<Dao.getInstance().신한배열.size(); i++) {
-//                        System.out.print(Dao.getInstance().신한배열.get(i).get계좌번호() + "  ");
-//                        System.out.print(Dao.getInstance().신한배열.get(i).get계좌주() + "  ");
-//                        System.out.print(Dao.getInstance().신한배열.get(i).get잔액() + "  ");
-//                        System.out.println(Dao.getInstance().신한배열.get(i).get마일리지());
-//                    }테스트 출력용
+                    for(int i=0; i<Dao.getInstance().부모배열.size(); i++) {
+                        System.out.print(Dao.getInstance().부모배열.get(i).get계좌번호() + "  ");
+                        System.out.print(Dao.getInstance().부모배열.get(i).get계좌주() + "  ");
+                        System.out.println(Dao.getInstance().부모배열.get(i).get잔액() + "  ");
+                    }//테스트 출력용
                 }else {
                     System.out.println("\n계좌생성에 실패하였습니다.\n");
                 }
@@ -70,7 +69,7 @@ public class MemberView {//class start
                 부모은행 부모은행a = new 부모은행(accountNumber,"",money); // 계좌번호 , 계좌주 , 잔액
                 // ===================================================================
 
-                if(Control.getInstance().예금(부모은행a,"")){
+                if(Control.getInstance().예금(부모은행a)){
                     System.out.println("\n안내] "+money+"원 입금성공하였습니다.\n");
                 }else {
                     System.out.println("\n안내] 예금 실패하였습니다.\n");
@@ -86,7 +85,7 @@ public class MemberView {//class start
                 System.out.print("출금액을 입력해주세요 : "); int money =scanner.nextInt();
                 부모은행 부모은행a = new 부모은행(accountNumber,"",money); // 계좌번호 , 계좌주 , 잔액
 
-                if(Control.getInstance().출금(부모은행a,"")){
+                if(Control.getInstance().출금(부모은행a)){
                     System.out.println("\n안내] "+money+"원 출금 성공하였습니다.\n");
                 }else {
                     System.out.println("\n안내] 출금 실패하였습니다.\n");

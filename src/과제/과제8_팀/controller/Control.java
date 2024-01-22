@@ -1,5 +1,4 @@
 package 과제.과제8_팀.controller;
-
 import 과제.과제8_팀.model.*;
 
 public class Control {
@@ -14,12 +13,12 @@ public class Control {
         }
             return false;
     }
-    public boolean 예금(부모은행 부모은행, String 선택한은행){
-        boolean result = Dao.getInstance().예금(부모은행, 선택한은행);
+    public boolean 예금(부모은행 부모은행){
+        boolean result = Dao.getInstance().예금(부모은행);
         return result;
     }
-    public boolean 출금(부모은행 부모은행, String 선택한은행){
-        boolean result = Dao.getInstance().출금(부모은행, 선택한은행);
+    public boolean 출금(부모은행 부모은행){
+        boolean result = Dao.getInstance().출금(부모은행);
         return result;
     }
 }

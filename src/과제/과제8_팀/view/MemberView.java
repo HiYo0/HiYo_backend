@@ -1,9 +1,9 @@
 package 과제.과제8_팀.view;
 
+import java.util.Scanner;
 import 과제.과제8_팀.model.*;
 import 과제.과제8_팀.controller.*;
 
-import java.util.Scanner;
 public class MemberView {//class start
 
     // 싱글톤

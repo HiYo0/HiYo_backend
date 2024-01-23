@@ -5,11 +5,27 @@ package day16.step1_인터페이스;
 public class Television implements RemoteControl {//class start
     // -implements (빨간줄)재정의한 메소드가 있어요!! 뜻
     // - 무조건 오버라이딩 한다.
+    // 인스턴스 필드
+    private int volume;
 
     @Override
-    public void turnon() {
+    public void turnOn() {
         System.out.println("TV를 켭니다.");
     }
+
+    @Override
+    public void turnOff() {
+        System.out.println("TV를 끕니다.");
+    }
+
+    @Override
+    public void setVolume(int volume) {
+        if(this.volume<RemoteControl.MAX_VOLUME){
+            this.volume =volume;
+        }
+        System.out.println("현재 TV 볼륨 : "+this.volume);
+    }
+
 
 }//class end
 

@@ -61,4 +61,5 @@ public class 그림판A implements 그림판도구툴 {
         System.out.println(this.현재색상);
         System.out.println(this.현재굵기);
     }
+
 }//class end

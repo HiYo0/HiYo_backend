@@ -51,6 +51,7 @@ public class MemberView {//class start
         if(result){
             System.out.println("<안내>로그인 성공");
             // 게시판 화면으로 이동할 예정
+            BoardView.getInstance().run(); // 보드 시작
         }else {
             System.out.println("<안내>로그인 실패");
         }

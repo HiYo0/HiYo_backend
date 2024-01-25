@@ -6,15 +6,12 @@ import day18.model.dto.MemberDto;
 import java.sql.*;
 
 
-public class MemberDao {//class start
+public class MemberDao extends Dao {//class start
 
 //    public static void main(String[] args) {//테스트용 main
 //        MemberDao.getInstance();
 //    }//테스트용 main end
 
-    private Connection conn; // 1. 여러 메소드에서 사용할려고 (필드에생성) // DB연동객체
-    private PreparedStatement ps; // 작성된 SQL 가지고 있고 , 실행 담당.
-    private ResultSet rs;
 
     // 싱글톤
     private MemberDao() { // 생성자. : 객체 생성시 초기화 담당.
@@ -33,12 +30,8 @@ public class MemberDao {//class start
             System.out.println("DB서버 연동오류남" + e);
         }
     }
-
     private static MemberDao memberDao = new MemberDao();
-
-    public static MemberDao getInstance() {
-        return memberDao;
-    }
+    public static MemberDao getInstance() {return memberDao;}
 
     // 1. 회원가입
     public int signup(MemberDto memberDto) {

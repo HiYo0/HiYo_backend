@@ -31,6 +31,10 @@ public class MemberController {//class start
     int loginMno = 0;
         // - 나중에 글쓰기 할때 fk에 pk번호 삽입.
 
+    public int getLoginMno() {
+        return loginMno;
+    }
+
     // 2. 로그인
     public boolean login(MemberDto memberDto){
         boolean result = false;

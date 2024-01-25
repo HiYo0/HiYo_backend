@@ -16,11 +16,10 @@ public class MainView {//class start
             System.out.println("1.회원가입 2.로그인");
             try {
                 System.out.print("선택 > ");int ch = scanner.nextInt();
-                if(ch ==1){
-
-
-                } else if (ch ==2) {
-
+                if(ch ==1){// 회원가입
+                    MemberView.getInstance().signup();
+                } else if (ch ==2) {// 로그인
+                    MemberView.getInstance().login();
                 }else {System.out.println("잘못된 기능 번호입니다.");}
             }catch (InputMismatchException e){
                 System.out.println("오류남 번호써야하는대 문자씀"+e);

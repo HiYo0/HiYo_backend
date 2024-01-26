@@ -1,6 +1,7 @@
 package day18.model.dao;
 
 
+import day18.model.dto.BoardDto;
 import day18.model.dto.MemberDto;
 
 import java.sql.*;
@@ -14,22 +15,7 @@ public class MemberDao extends Dao {//class start
 
 
     // 싱글톤
-    private MemberDao() { // 생성자. : 객체 생성시 초기화 담당.
-        // - 객체 생성시 DB연동.
-        try {
-            // 1. mySQL 회사의 JDBC관련된(Driver) 객체를 JVM에 로딩한다. 불러오기.
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            // 2. 연동된 결과의 (구현체)객체를 Connection 인터페이스에 대입한다.
-            conn = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/java",
-                    "root",
-                    "1234"
-            );
-            System.out.println("DB연동 성공");
-        } catch (Exception e) {
-            System.out.println("DB서버 연동오류남" + e);
-        }
-    }
+
     private static MemberDao memberDao = new MemberDao();
     public static MemberDao getInstance() {return memberDao;}
 
@@ -120,5 +106,6 @@ public class MemberDao extends Dao {//class start
         }
         return 0;
     }
+
 
 }//class end

@@ -8,13 +8,13 @@ public class Step3 {//class start
         // 2. 구현객체가 자식과부모 인터페이스의 모두 대입 가능
         InterfaceA ia = impl;
         ia.methodA();
-        ia.methodB();
-        ia.methodC();
+//        ia.methodB();
+//        ia.methodC();
 
         InterfaceB ib = impl;
-        ib.methodA();
+//        ib.methodA();
         ib.methodB();
-        ib.methodC();
+//        ib.methodC();
 
         InterfaceC ic = impl;
         ic.methodA();

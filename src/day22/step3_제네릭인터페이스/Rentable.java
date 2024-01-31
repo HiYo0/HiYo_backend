@@ -1,4 +1,4 @@
-package day22.step3;
+package day22.step3_제네릭인터페이스;
 
 public interface Rentable <P>{
     // 인터페이스 제네릭 타입가능
